@@ -1,0 +1,222 @@
+@import './mixins';
+
+$main-color: #1d90f5;
+$submain-color: #9aa5b5;
+$input-color: #323644;
+$focus-color: #3d404b;
+
+@font-face {
+  src: url('../fonts/RobotoCondensed-Regular.ttf');
+  font-family: 'RobotoCondensed';
+}
+
+@font-face {
+  src: url('../fonts/Nunito-Regular.ttf');
+  font-family: 'Nunito';
+}
+
+@font-face {
+  src: url('../fonts/JosefinSans-Regular.ttf');
+  font-family: 'JosefinSans';
+}
+
+body {
+  color: #fff;
+  font-family: 'JosefinSans'
+}
+
+.container-fluid {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.image-bg {
+  background-image: url('../images/pic4.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  width: 100%;
+  height: auto;
+  z-index: 10;
+  background-image: linear-gradient(
+    60deg,
+    rgb(5, 4, 28, .98) 60%,
+    rgba(5, 4, 28, 0.4) 100%
+  );
+}
+
+/*Start Of The Header*/
+.header {
+  display: flex;
+
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  &:hover {
+    color: #fff;
+  }
+}
+
+.logo {
+  width: 30px;
+  height: 30px;
+  background-color: $main-color;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  padding-top: 4px;
+  margin-bottom: 6px;
+}
+
+.brand {
+  margin: 0;
+  padding-left: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  &::after {
+    @include dot(5px, $main-color);
+  }
+}
+
+.navbar-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  // flex-wrap: wrap;
+  .nav-link {
+    color: $submain-color;
+    margin-left: 10rem;
+    font-weight: bold;
+    &:hover,
+    &:active {
+      color: #fff;
+      transition: all ease .3s;
+    }
+  }
+}
+/*End Of The Header*/
+
+/*Start Of The Content*/
+.content {
+  padding: 4rem;
+  .text-1 {
+    text-transform: uppercase;
+    color: $submain-color;
+    font-weight: bold;
+  }
+  .text-2 {
+    font-size: 3.7rem;
+    font-weight: bold;
+    &::after {
+      @include dot(13px, $main-color);
+    }
+  }
+  .question {
+    font-size: 1.1rem;
+    span {
+      color: $submain-color;
+      margin-right: 5px;
+    }
+    a {
+      text-decoration: none;
+      &:hover,
+      &:active {
+        text-decoration: underline;
+      }
+    }
+  }
+  // Start Of Form
+  form {
+    .input-stuff {
+      position: relative;
+        i {
+          position: absolute;
+          top: 55%;
+          right: 8%;
+          color: $submain-color;
+          font-size: 20px;
+        }
+        #eye {
+          cursor: pointer;         
+        }
+        #noEye {
+          display: none;
+          cursor: pointer;
+        }
+    }
+    .form-label {
+      color: $submain-color
+    }
+    input {
+      height: 60px;
+      background-color: $input-color;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 20px;
+      color: #fff !important; 
+      &:focus {
+        background-color: $focus-color;
+        border: 2px solid $main-color;
+      }
+    }
+    #exampleInputPassword1 {
+      letter-spacing: 3px;
+    }
+    button {
+      width: 20rem;
+      padding: 15px 45px;
+      margin-bottom: 15px;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 25px;
+      transition: all ease .3s;
+      &:hover,
+      &:focus {
+        border: 2px solid #fff;
+      }
+    }
+    .change-btn {
+      background-color: $focus-color;
+    }
+    .submit-btn {
+      background-color: $main-color;
+    }
+  }
+}
+
+/*End Of The Content*/
+
+
+
+// Start Responsive
+@media (max-width: 768px) {
+  .navbar-items {
+    .nav-link {
+    margin-left: 5rem;
+    }
+  }
+
+  .content {
+    .text-2 {
+      font-size: 2.4rem;
+      &::after {
+        @include dot(10px, $main-color);
+      }
+    }
+  }
+}
+

@@ -1,0 +1,9 @@
+@mixin dot($size, $color) {
+  content: '';
+  width: $size;
+  height: $size;
+  display: inline-block;
+  background-color: $color;
+  border-radius: 50%;
+  margin-left: 3px;
+}
